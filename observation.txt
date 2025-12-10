@@ -1,0 +1,8 @@
+
+Back
+Toute les classe on des DTO, 
+il y a des mapper pour géré les transformation d'objet en DTO
+énormément de décorateur, notamment pour les classe model
+
+
+a quoi servent les classe service dans le projet back ? 
