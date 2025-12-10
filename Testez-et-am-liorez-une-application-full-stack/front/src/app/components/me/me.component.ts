@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject, DestroyRef } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { User } from '../../core/models/user.interface';
@@ -6,6 +6,8 @@ import { SessionService } from '../../core/service/session.service';
 import { UserService } from '../../core/service/user.service';
 import { MaterialModule } from "../../shared/material.module";
 import { CommonModule } from "@angular/common";
+import { Subject, takeUntil } from 'rxjs';
+import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-me',
@@ -20,10 +22,13 @@ export class MeComponent implements OnInit {
   private userService = inject(UserService);
   public user: User | undefined;
 
+  private destroyRef = inject(DestroyRef); 
+
 
   ngOnInit(): void {
     this.userService
       .getById(this.sessionService.sessionInformation!.id.toString())
+      .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe((user: User) => this.user = user);
   }
 
