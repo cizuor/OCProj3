@@ -6,7 +6,6 @@ import { SessionService } from '../../core/service/session.service';
 import { UserService } from '../../core/service/user.service';
 import { MaterialModule } from "../../shared/material.module";
 import { CommonModule } from "@angular/common";
-import { Subject, takeUntil } from 'rxjs';
 import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
 
 @Component({
