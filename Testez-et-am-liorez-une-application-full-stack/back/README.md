@@ -88,8 +88,10 @@ Dans l'onglet ```Exec```, il faut :
 
     ```
     mysql -u user_test -p
+    mysql -u root -p
     ```
    L'invite de commande demandera le mot de passe. Il est : ```test_password```.
+   ```root_password```
 
 
 2. Se connecter au schéma de base de données `test`. Dans l'invite de commande, tapez la commande ci-dessous :
