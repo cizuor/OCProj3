@@ -4,11 +4,11 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../core/service/auth.service';
 import { RegisterRequest } from '../../core/models/registerRequest.interface';
 import { MaterialModule } from "../../shared/material.module";
-import { CommonModule } from "@angular/common";
+
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 @Component({
   selector: 'app-register',
-  imports: [CommonModule, MaterialModule],
+  imports: [MaterialModule],
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
