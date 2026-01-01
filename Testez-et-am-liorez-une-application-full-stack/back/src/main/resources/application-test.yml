@@ -1,7 +1,6 @@
 oc:
   app:
-    # On définit un secret en dur pour les tests pour éviter l'erreur si la variable est absente
-    jwtSecret: "maSuperCleSecreteDeTestPourCypress1234567890"
+    jwtSecret: ${TOKEN_SECRET}
     jwtExpirationMs: 3600000 # 1 heure suffit pour les tests
 
 spring:
