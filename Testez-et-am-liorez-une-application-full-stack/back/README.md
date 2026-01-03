@@ -135,3 +135,11 @@ Importez la collection Postman
 La documentation de Postman se trouve ici :
 
 https://learning.postman.com/docs/getting-started/importing-and-exporting-data/#importing-data-into-postman
+
+
+
+pour test : 
+1: pour test juste le front (unitaire) npm test -- --coverage
+2 : pour test en e2e et integration (cypress) compiler en test (pour la BDD H2) , puis on fait ng serve puis enfin npx cypress open, 
+de fait on a un back un front et les scénario cypress peuvent se dérouler.
+
