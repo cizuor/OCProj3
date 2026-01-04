@@ -53,7 +53,7 @@ describe('FormComponent', () => {
   beforeAll(() => {
     jest.spyOn(console, 'error').mockImplementation((msg) => {
       if (typeof msg === 'string' && msg.includes('Could not parse CSS stylesheet')) return;
-      console.warn(msg);
+      //console.warn(msg);
     });
   });
 

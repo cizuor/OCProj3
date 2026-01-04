@@ -32,6 +32,7 @@ describe('RegisterComponent', () => {
     password: 'password123'
   };
 
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [

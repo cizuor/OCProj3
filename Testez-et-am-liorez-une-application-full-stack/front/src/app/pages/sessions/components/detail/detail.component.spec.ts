@@ -43,6 +43,13 @@ describe('DetailComponent', () => {
 
   const mockTeacher = { id: 10, firstName: 'John', lastName: 'Doe' };
 
+    beforeAll(() => {
+    jest.spyOn(console, 'error').mockImplementation((msg) => {
+      if (typeof msg === 'string' && msg.includes('Could not parse CSS stylesheet')) return;
+      //console.warn(msg);
+    });
+    });
+
   beforeEach(async () => {
 
     sessionApiSpy = {
@@ -59,6 +66,7 @@ describe('DetailComponent', () => {
     matSnackBarSpy  = { open: jest.fn() };
 
     routerSpy = { navigate: jest.fn() };
+
 
     await TestBed.configureTestingModule({
       imports: [ReactiveFormsModule,DetailComponent],
