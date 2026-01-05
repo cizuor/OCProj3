@@ -143,3 +143,7 @@ pour test :
 2 : pour test en e2e et integration (cypress) compiler en test (pour la BDD H2) , puis on fait ng serve puis enfin npx cypress open, 
 de fait on a un back un front et les scénario cypress peuvent se dérouler.
 
+3 : pour les test back, il faut utilisé l'IDE, ou bien MVN clean test , cela crée un rapport dans target/site/jacoco/
+il faut l'ouvirr dans un navigateur pour avoir la couverture.
+
+
