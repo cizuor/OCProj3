@@ -21,4 +21,8 @@ public class TeacherService {
     public Teacher findById(Long id) {
         return this.teacherRepository.findById(id).orElse(null);
     }
+
+    public Teacher create (Teacher teacher){
+        return this.teacherRepository.save(teacher);
+    }
 }
