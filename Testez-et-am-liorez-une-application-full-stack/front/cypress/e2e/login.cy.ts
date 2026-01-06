@@ -6,27 +6,6 @@ describe('Login spec', () => {
   })
   it('Login successfull', () => {
 
-
-    // cas du test d'integration du front end
-    /*cy.intercept('POST', '/api/auth/login', {
-      body: {
-        id: 1,
-        username: 'userName',
-        firstName: 'firstName',
-        lastName: 'lastName',
-        admin: true
-      },
-    })
-
-    cy.intercept(
-      {
-        method: 'GET',
-        url: '/api/session',
-      },
-      []).as('session')*/
-
-
-      //todo ne pas mettre un compte admin pour test
     cy.get('input[formControlName=email]').type("yoga@studio.com")
     cy.get('input[formControlName=password]').type(`${"test!1234"}{enter}{enter}`)
 

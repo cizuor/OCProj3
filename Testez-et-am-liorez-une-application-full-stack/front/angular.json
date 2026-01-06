@@ -81,7 +81,7 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "buildTarget": "project-name:build",
+            "buildTarget": "yoga:build:build",
             "proxyConfig": "proxy.conf.json"
           },
           "configurations": {
@@ -98,7 +98,8 @@
         "serve-coverage": {
           "builder": "@angular-builders/custom-webpack:dev-server",
           "options": {
-            "buildTarget": "yoga:build:e2e"
+            "buildTarget": "yoga:build:e2e",
+            "proxyConfig": "proxy.conf.json"
           }
         },
         "extract-i18n": {

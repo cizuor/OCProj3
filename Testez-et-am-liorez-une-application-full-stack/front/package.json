@@ -9,6 +9,7 @@
     "e2e": "ng e2e",
     "e2e:ci": "ng run yoga:e2e-ci",
     "e2e:coverage": "npx nyc report --reporter=lcov --reporter=text-summary",
+    "start:coverage": "ng serve --extra-webpack-config cypress/coverage.webpack.ts",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run"
   },

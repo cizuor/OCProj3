@@ -147,3 +147,9 @@ de fait on a un back un front et les scénario cypress peuvent se dérouler.
 il faut l'ouvirr dans un navigateur pour avoir la couverture.
 
 
+4 : (lancer le back en test) pour les test coverage cypress il faut lancer le serveur avec "npx ng run yoga:serve-coverage" 
+puis lance les test en automatique avec "npx cypress run" et enfin "npm run e2e:coverage" pour le rapport.
+il est possible de trouvé le rapport détaillé dans "estez-et-am-liorez-une-application-full-stack\front\coverage\lcov-report" en utilisant index.html
+
+
+
