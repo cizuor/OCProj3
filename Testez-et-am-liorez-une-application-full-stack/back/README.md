@@ -138,18 +138,65 @@ https://learning.postman.com/docs/getting-started/importing-and-exporting-data/#
 
 
 
-pour test : 
-1: pour test juste le front (unitaire) npm test -- --coverage
-2 : pour test en e2e et integration (cypress) compiler en test (pour la BDD H2) , puis on fait ng serve puis enfin npx cypress open, 
-de fait on a un back un front et les scénario cypress peuvent se dérouler.
+## Test
+Ce projet contient des tests unitaires, d'intégration et de bout en bout (E2E) pour les parties Front-end et Back-end.
 
-3 : pour les test back, il faut utilisé l'IDE, ou bien MVN clean test , cela crée un rapport dans target/site/jacoco/
-il faut l'ouvirr dans un navigateur pour avoir la couverture.
+1. Tests Front-end (Unitaires)
 
+Utilisés pour valider les composants et services Angular de manière isolée.
 
-4 : (lancer le back en test) pour les test coverage cypress il faut lancer le serveur avec "npx ng run yoga:serve-coverage" 
-puis lance les test en automatique avec "npx cypress run" et enfin "npm run e2e:coverage" pour le rapport.
-il est possible de trouvé le rapport détaillé dans "estez-et-am-liorez-une-application-full-stack\front\coverage\lcov-report" en utilisant index.html
+    Commande :
+    code Bash
+        
+    npm test -- --coverage
 
+    Résultats : Le rapport de couverture est généré dans le dossier front/coverage/.
+    Consulter : Ouvrez front/coverage/lcov-report/index.html dans votre navigateur.
+
+2. Tests Back-end (Java/Spring Boot)
+
+Tests unitaires et d'intégration pour l'API.
+
+    Commande : Via votre IDE (clic droit sur le projet > Run Tests) ou via Maven :
+    code Bash
+ 
+    mvn clean test
+
+    Résultats : Le rapport de couverture (JaCoCo) est généré dans target/site/jacoco/.
+    Consulter : Ouvrez target/site/jacoco/index.html dans votre navigateur.
+
+3. Tests E2E & Intégration (Cypress)
+
+Ces tests vérifient le parcours utilisateur complet. Ils nécessitent que le Back-end et le Front-end soient lancés.
+A. Mode Interactif (Développement)
+
+Idéal pour écrire ou déboguer des tests.
+    Lancer le Back-end : Compilez et lancez le serveur avec le profil de test (pour utiliser la base H2).
+    Lancer le Front-end : ng serve
+    Lancer Cypress :
+    code Bash
+ 
+    npx cypress open
+
+      
+
+B. Mode Coverage (Rapport de couverture E2E)
+Pour générer un rapport détaillé de la couverture de code lors des tests E2E.
+    Lancer le serveur instrumenté :
+    code Bash
+
+npx ng run yoga:serve-coverage
+
+Exécuter les tests en automatique :
+code Bash
+
+npx cypress run
+
+Générer le rapport :
+code Bash
+ 
+    npm run e2e:coverage
+
+    Consulter le rapport : Le détail se trouve dans front/coverage/lcov-report/index.html.
 
 

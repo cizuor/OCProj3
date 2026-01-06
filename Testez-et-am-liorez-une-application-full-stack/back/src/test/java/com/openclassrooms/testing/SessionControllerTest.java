@@ -10,6 +10,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -17,6 +18,7 @@ import com.openclassrooms.starterjwt.SpringBootSecurityJwtApplication;
 import com.openclassrooms.starterjwt.dto.SessionDto;
 import com.openclassrooms.starterjwt.mapper.SessionMapper;
 import com.openclassrooms.starterjwt.models.Session;
+import com.openclassrooms.starterjwt.models.Teacher;
 import com.openclassrooms.starterjwt.services.SessionService;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -54,9 +56,15 @@ public class SessionControllerTest {
         session = new Session();
         session.setId(1L);
         session.setName("Yoga Session");
+        session.setDate(new Date());
+        session.setTeacher(new Teacher()); 
+        session.setDescription("Une description de plus de 10 caractères");
 
         sessionDto = new SessionDto();
         sessionDto.setName("Yoga Session");
+        sessionDto.setDate(new Date());
+        sessionDto.setTeacher_id(1L); 
+        sessionDto.setDescription("Une description de plus de 10 caractères");
     }
 
     @Test

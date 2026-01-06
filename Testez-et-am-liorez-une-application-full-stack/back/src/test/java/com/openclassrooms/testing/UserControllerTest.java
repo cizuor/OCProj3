@@ -11,6 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -88,6 +91,9 @@ public class UserControllerTest {
         // ARRANGE
         when(userService.findById(1L)).thenReturn(user);
 
+        Authentication authentication = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+
         // ACT
         mockMvc.perform(delete("/api/user/1")
                 .with(user(userDetails))) 
@@ -106,6 +112,14 @@ public class UserControllerTest {
                 .id(2L)
                 .username("hacker@test.com")
                 .build();
+
+
+        Authentication authentication = new UsernamePasswordAuthenticationToken(
+            hackerDetails, 
+            null, 
+            hackerDetails.getAuthorities()
+        );
+        SecurityContextHolder.getContext().setAuthentication(authentication);
 
         // ACT
         mockMvc.perform(delete("/api/user/1")
